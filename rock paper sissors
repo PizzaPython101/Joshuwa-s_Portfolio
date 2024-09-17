@@ -1,0 +1,140 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "e989490a-31d6-43cf-b9f6-cbfe864a6c7f",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Let's play rock, paper, or scissors\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Choose rock, paper, or scissors:  rock\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Computer chose: paper\n",
+      "Computer won\n",
+      "Current Score - Player: 0, Computer: 1\n",
+      "Computer won!\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Choose rock, paper, or scissors:  paper\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Computer chose: rock\n",
+      "You won\n",
+      "Current Score - Player: 1, Computer: 1\n",
+      "Computer won!\n"
+     ]
+    },
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Choose rock, paper, or scissors:  rock\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Computer chose: scissors\n",
+      "You won\n",
+      "Current Score - Player: 2, Computer: 1\n",
+      "Congratulations! You won.\n"
+     ]
+    }
+   ],
+   "source": [
+    "import random\n",
+    "\n",
+    "print(\"Let's play rock, paper, or scissors\")\n",
+    "\n",
+    "player_wins = 0\n",
+    "computer_wins = 0\n",
+    "\n",
+    "while player_wins < 2 and computer_wins < 2:\n",
+    "  player_choice = input(\"\\nChoose rock, paper, or scissors: \").lower()\n",
+    "  choices = [\"rock\", \"paper\", \"scissors\"]\n",
+    "  computer_choice = random.choice(choices)\n",
+    "  print(f\"Computer chose: {computer_choice}\")\n",
+    "\n",
+    "  if (player_choice == \"rock\" and computer_choice == \"scissors\") or (player_choice == \"scissors\" and computer_choice == \"paper\") or (player_choice == \"paper\" and computer_choice == \"rock\"):\n",
+    "    winner = \"Player\"\n",
+    "  elif player_choice == computer_choice:\n",
+    "    winner = \"Tie\"\n",
+    "  else:\n",
+    "    winner = \"Computer\"\n",
+    "\n",
+    "  if winner == \"Player\":\n",
+    "    player_wins += 1\n",
+    "    print(\"You won\")\n",
+    "  elif winner == \"Computer\":\n",
+    "    computer_wins += 1\n",
+    "    print(\"Computer won\")\n",
+    "  else:\n",
+    "    print(\"It's a tie\")\n",
+    "\n",
+    "  print(f\"Current Score - Player: {player_wins}, Computer: {computer_wins}\")\n",
+    "\n",
+    "  if player_wins > computer_wins:\n",
+    "    print(\"Congratulations! You won.\")\n",
+    "    \n",
+    "  else:\n",
+    "    print(\"Computer won!\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "87faad31-7eca-4959-a6bb-7318e9fd5db6",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
