@@ -1,0 +1,48 @@
+import random
+# TUTORIAL PART
+print("Welcome to my fishing game🐟, type (begin) to start the tutorial")
+print("")
+print("")
+fish_index = {
+    "salmon": 10,
+    "goldfish": 5,
+    "clownfish": 7,
+    "boot": 1,
+    "zebrafish": 8
+}
+start = input("type (begin): ")
+
+if start == "begin":
+    print("\nEverytime you want to fish type fish, give it a try\n")
+    total_money = 0  # Track total money earned
+    
+    while True:
+        inventory_space = 5
+        total_value = 0  # Initialize total value for the current fishing session
+        while inventory_space > 0:
+            fished = input("⛵ ")
+            if fished == "fish":
+                inventory_space -= 1
+                fish = random.choice(list(fish_index.keys()))
+                value = fish_index[fish]
+                total_value += value  # Add the fish's value to the total
+                print(f"\nYou caught a {fish} worth ${value}, Inventory space left: {inventory_space}, Total value: ${total_value}")
+            else:
+                print("Please type 'fish' to continue fishing.")
+        
+        if inventory_space == 0:
+            print("Uh oh! Looks like you ran out of storage")
+
+        while True:
+            sell = input("Do you want to sell your fish for the total value? (yes/no): ")
+            if sell == "yes":
+                total_money += total_value  # Add the total value of this session to total money earned
+                print(f"\nYou sold all your fish for a total of ${total_value}! Now you have more inventory space.")
+                print(f"Total money earned: ${total_money}")
+                break
+            elif sell == "no":
+                print("\nYou can't fish anymore without selling.\n")
+            else:
+                print("Please type 'yes' or 'no'.")
+
+        print("\nStart fishing again!\n")
